@@ -13,12 +13,12 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const baseStyles = 'rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#1c1c1e] disabled:opacity-50 disabled:cursor-not-allowed'
+  const baseStyles = 'rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--bg)] disabled:opacity-50 disabled:cursor-not-allowed'
   
   const variantStyles = {
-    primary: 'bg-[#2c2c2e] text-white hover:bg-[#3a3a3c] focus:ring-[#ff9f0a]',
-    secondary: 'bg-[#3a3a3c] text-white hover:bg-[#4a4a4c] focus:ring-[#ff9f0a]',
-    accent: 'bg-[#ff9f0a] text-white hover:bg-[#ffb340] focus:ring-[#ff9f0a]',
+    primary: 'bg-[var(--panel)] text-[var(--text-strong)] hover:bg-[var(--panel-hover)] focus:ring-[var(--accent)]',
+    secondary: 'bg-[var(--panel-strong)] text-[var(--text-strong)] hover:bg-[var(--panel-hover)] focus:ring-[var(--accent)]',
+    accent: 'bg-[var(--accent)] text-white hover:bg-[var(--accent-strong)] focus:ring-[var(--accent)]',
   }
   
   const sizeStyles = {

@@ -16,7 +16,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, className = '' }) => {
 
   return (
     <div className={className}>
-      <div className="flex space-x-1 bg-[#2c2c2e] p-1 rounded-xl mb-6">
+      <div className="flex space-x-1 bg-[var(--panel)] p-1 rounded-xl mb-6 border border-[var(--border)]">
         {tabs.map((tab) => (
           <button
             key={tab.value}
@@ -24,8 +24,8 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, className = '' }) => {
             className={`
               flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
               ${activeTab === tab.value
-                ? 'bg-[#ff9f0a] text-white shadow-md'
-                : 'text-[#8e8e93] hover:text-white hover:bg-[#3a3a3c]'
+                ? 'bg-[var(--accent)] text-white shadow-md'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-strong)] hover:bg-[var(--panel-strong)]'
               }
             `}
           >

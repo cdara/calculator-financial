@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import { Header } from './components/layout'
 import { Tabs } from './components/ui'
 import { CompoundInterestCalculator } from './modules/compound'
@@ -7,7 +8,9 @@ import { TVMCalculator } from './modules/tvm'
 import { CAGRCalculator } from './modules/cagr'
 
 function App() {
-  const tabs = [
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+
+  const tabs = useMemo(() => [
     {
       value: 'compound',
       label: 'Compound Interest',
@@ -33,16 +36,16 @@ function App() {
       label: 'CAGR',
       content: <CAGRCalculator />,
     },
-  ]
+  ], [])
 
   return (
-    <div className="min-h-screen bg-[#1c1c1e]">
-      <Header />
+    <div className="min-h-screen" data-theme={theme}>
+      <Header theme={theme} onToggleTheme={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')} />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <Tabs tabs={tabs} />
       </main>
-      <footer className="py-6 px-4 border-t border-[#3a3a3c] mt-8">
-        <div className="max-w-4xl mx-auto text-center text-[#8e8e93] text-sm">
+      <footer className="py-6 px-4 border-t border-[var(--border)] mt-8">
+        <div className="max-w-4xl mx-auto text-center text-[var(--text-muted)] text-sm">
           <p>FinCalc Suite - Professional Financial Calculator</p>
           <p className="mt-1">Built with React, TypeScript, and Decimal.js</p>
         </div>
