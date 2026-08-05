@@ -4,17 +4,16 @@ import userEvent from '@testing-library/user-event'
 import { Input } from '../Input'
 
 describe('Input', () => {
-  it('renders the label and helper content', () => {
+  it('renders the label without showing helper text beneath the field', () => {
     render(
       <Input
         label="Principal Amount"
         helperText="Enter a numeric value"
-        placeholder="Enter principal amount"
       />
     )
 
     expect(screen.getByLabelText('Principal Amount')).toBeInTheDocument()
-    expect(screen.getByText('Enter a numeric value')).toBeInTheDocument()
+    expect(screen.queryByText('Enter a numeric value')).not.toBeInTheDocument()
   })
 
   it('keeps calculator fields digit-friendly by removing non-numeric characters', async () => {
@@ -23,7 +22,6 @@ describe('Input', () => {
     render(
       <Input
         label="Principal Amount"
-        placeholder="Enter principal amount"
         inputMode="decimal"
       />
     )

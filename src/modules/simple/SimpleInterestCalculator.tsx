@@ -46,36 +46,30 @@ export const SimpleInterestCalculator: React.FC = () => {
       <CardContent>
         <div className="space-y-4">
           <Input
-            label="Principal Amount"
+            label="Principal Amount (USD)"
             type="number"
             step="0.01"
-            placeholder="Enter principal amount"
             value={state.principal.value}
             error={state.principal.error}
             onChange={(e) => updateField('principal', e.target.value)}
-            helperText="Initial amount"
           />
           
           <Input
             label="Interest Rate (%)"
             type="number"
             step="0.01"
-            placeholder="Enter interest rate"
             value={state.interestRate.value}
             error={state.interestRate.error}
             onChange={(e) => updateField('interestRate', e.target.value)}
-            helperText="Annual interest rate as percentage"
           />
           
           <Input
             label="Time (years)"
             type="number"
             step="0.1"
-            placeholder="Enter time period"
             value={state.time.value}
             error={state.time.error}
             onChange={(e) => updateField('time', e.target.value)}
-            helperText="Duration in years"
           />
           
           <div className="flex space-x-3 pt-4">
@@ -88,16 +82,16 @@ export const SimpleInterestCalculator: React.FC = () => {
           </div>
           
           {result && (
-            <div className="mt-6 p-4 bg-[#1c1c1e] rounded-lg space-y-3">
+            <div className="mt-6 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)] space-y-3">
               <h3 className="text-lg font-semibold text-[#ff9f0a]">Results</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-[#8e8e93]">Interest Earned</p>
-                  <p className="text-xl font-bold text-[#30d158]">{result.interest}</p>
+                  <p className="text-sm text-[var(--text-muted)]">Interest Earned</p>
+                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[#30d158]">{result.interest}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-[#8e8e93]">Total Amount</p>
-                  <p className="text-xl font-bold text-white">{result.totalAmount}</p>
+                  <p className="text-sm text-[var(--text-muted)]">Total Amount</p>
+                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[var(--text-strong)]">{result.totalAmount}</p>
                 </div>
               </div>
             </div>

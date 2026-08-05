@@ -6,6 +6,7 @@ import { SimpleInterestCalculator } from './modules/simple'
 import { MortgageCalculator } from './modules/mortgage'
 import { TVMCalculator } from './modules/tvm'
 import { CAGRCalculator } from './modules/cagr'
+import { HelpGuide } from './modules/help'
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
@@ -36,12 +37,17 @@ function App() {
       label: 'CAGR',
       content: <CAGRCalculator />,
     },
+    {
+      value: 'help',
+      label: 'Help',
+      content: <HelpGuide />,
+    },
   ], [])
 
   return (
     <div className="min-h-screen" data-theme={theme}>
       <Header theme={theme} onToggleTheme={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')} />
-      <main className="max-w-4xl mx-auto px-4 py-8">
+      <main className="mx-auto w-full max-w-[880px] px-4 py-6 sm:py-8">
         <Tabs tabs={tabs} />
       </main>
       <footer className="py-6 px-4 border-t border-[var(--border)] mt-8">

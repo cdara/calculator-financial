@@ -67,11 +67,12 @@ describe('validation', () => {
   })
 
   describe('formatCurrency', () => {
-    it('should format as currency with 2 decimal places', () => {
-      expect(formatCurrency(new Decimal(100))).toBe('100.00')
-      expect(formatCurrency(new Decimal('100.50'))).toBe('100.50')
-      expect(formatCurrency(new Decimal('100.567'))).toBe('100.57')
-      expect(formatCurrency(new Decimal('100.564'))).toBe('100.56')
+    it('should format as US currency with 2 decimal places', () => {
+      expect(formatCurrency(new Decimal(100))).toBe('$100.00')
+      expect(formatCurrency(new Decimal('100.50'))).toBe('$100.50')
+      expect(formatCurrency(new Decimal('100.567'))).toBe('$100.57')
+      expect(formatCurrency(new Decimal('100.564'))).toBe('$100.56')
+      expect(formatCurrency(new Decimal('1234.56'))).toBe('$1,234.56')
     })
   })
 

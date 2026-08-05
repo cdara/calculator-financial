@@ -46,36 +46,30 @@ export const CAGRCalculator: React.FC = () => {
       <CardContent>
         <div className="space-y-4">
           <Input
-            label="Beginning Value"
+            label="Beginning Value (USD)"
             type="number"
             step="0.01"
-            placeholder="Enter beginning value"
             value={state.beginningValue.value}
             error={state.beginningValue.error}
             onChange={(e) => updateField('beginningValue', e.target.value)}
-            helperText="Initial investment or value"
           />
           
           <Input
-            label="Ending Value"
+            label="Ending Value (USD)"
             type="number"
             step="0.01"
-            placeholder="Enter ending value"
             value={state.endingValue.value}
             error={state.endingValue.error}
             onChange={(e) => updateField('endingValue', e.target.value)}
-            helperText="Final investment or value"
           />
           
           <Input
             label="Number of Years"
             type="number"
             step="0.1"
-            placeholder="Enter number of years"
             value={state.years.value}
             error={state.years.error}
             onChange={(e) => updateField('years', e.target.value)}
-            helperText="Time period in years"
           />
           
           <div className="flex space-x-3 pt-4">
@@ -88,18 +82,18 @@ export const CAGRCalculator: React.FC = () => {
           </div>
           
           {result && (
-            <div className="mt-6 p-4 bg-[#1c1c1e] rounded-lg">
+            <div className="mt-6 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)]">
               <h3 className="text-lg font-semibold text-[#ff9f0a] mb-2">Result</h3>
               <div>
-                <p className="text-sm text-[#8e8e93]">Compound Annual Growth Rate</p>
-                <p className="text-3xl font-bold text-white">{result.cagr}</p>
+                <p className="text-sm text-[var(--text-muted)]">Compound Annual Growth Rate</p>
+                <p className="financial-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-[var(--text-strong)]">{result.cagr}</p>
               </div>
             </div>
           )}
           
-          <div className="mt-4 p-4 bg-[#2c2c2e] rounded-lg">
-            <h4 className="text-sm font-semibold text-[#8e8e93] mb-2">About CAGR</h4>
-            <p className="text-xs text-[#8e8e93]">
+          <div className="mt-4 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)]">
+            <h4 className="text-sm font-semibold text-[var(--text-muted)] mb-2">About CAGR</h4>
+            <p className="text-xs text-[var(--text-muted)]">
               CAGR measures the annual growth rate of an investment over a specified period,
               assuming the investment had grown at a steady rate. It's useful for comparing
               the performance of different investments over time.

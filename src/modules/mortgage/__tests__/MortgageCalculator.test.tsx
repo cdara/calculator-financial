@@ -8,9 +8,9 @@ describe('MortgageCalculator', () => {
     render(<MortgageCalculator />)
 
     expect(screen.getByText('Mortgage Calculator')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter loan amount')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter annual interest rate')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter loan term')).toBeInTheDocument()
+    expect(screen.getByLabelText('Loan Amount (USD)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Interest Rate (%)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Loan Term (years)')).toBeInTheDocument()
   })
 
   it('accepts user input and displays payment summary', async () => {

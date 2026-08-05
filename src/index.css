@@ -18,14 +18,14 @@
   --panel-strong: #3a3a3c;
   --panel-hover: #4a4a4c;
   --text-strong: #ffffff;
-  --text-muted: #8e8e93;
+  --text-muted: #e8e8e9;
   --text: #f5f5f5;
   --accent: #ff9f0a;
   --accent-strong: #ffb340;
   --input-bg: #2c2c2e;
-  --input-border: #3a3a3c;
+  --input-border: #5a5a5f;
   --input-text: #ffffff;
-  --border: #3a3a3c;
+  --border: #5a5a5f;
   --error: #ff453a;
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
 }
@@ -42,9 +42,9 @@
   --accent: #ff9f0a;
   --accent-strong: #ffb340;
   --input-bg: #ffffff;
-  --input-border: #d1d1d6;
+  --input-border: #a7a7ae;
   --input-text: #1c1c1e;
-  --border: #d1d1d6;
+  --border: #bfc0c6;
   --error: #ff453a;
   --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
@@ -59,9 +59,16 @@ body {
     radial-gradient(circle at top, rgba(255, 159, 10, 0.14), transparent 25%),
     var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.financial-display {
+  font-family: 'SF Pro Display', 'Segoe UI', sans-serif;
+  font-feature-settings: 'tnum' 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
 }
 
 #root {
@@ -73,4 +80,21 @@ body {
 button,
 input {
   font: inherit;
+}
+
+.math-formula {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  margin: 1rem 0;
+  color: inherit;
+}
+
+.math-formula .katex-display {
+  margin: 0;
+}
+
+.math-formula .katex {
+  color: inherit;
 }

@@ -8,9 +8,9 @@ describe('SimpleInterestCalculator', () => {
     render(<SimpleInterestCalculator />)
 
     expect(screen.getByText('Simple Interest Calculator')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter principal amount')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter interest rate')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter time period')).toBeInTheDocument()
+    expect(screen.getByLabelText('Principal Amount (USD)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Interest Rate (%)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Time (years)')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Calculate' })).toBeInTheDocument()
   })
 

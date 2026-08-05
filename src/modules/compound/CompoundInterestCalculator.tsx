@@ -52,58 +52,48 @@ export const CompoundInterestCalculator: React.FC = () => {
       <CardContent>
         <div className="space-y-4">
           <Input
-            label="Principal Amount"
+            label="Principal Amount (USD)"
             type="number"
             step="0.01"
-            placeholder="Enter principal amount"
             value={state.principal.value}
             error={state.principal.error}
             onChange={(e) => updateField('principal', e.target.value)}
-            helperText="Initial investment amount"
           />
           
           <Input
             label="Annual Interest Rate (%)"
             type="number"
             step="0.01"
-            placeholder="Enter annual interest rate"
             value={state.annualRate.value}
             error={state.annualRate.error}
             onChange={(e) => updateField('annualRate', e.target.value)}
-            helperText="Annual interest rate as percentage"
           />
           
           <Input
-            label="Compounding Frequency"
+            label="Compounding Frequency (times/year)"
             type="number"
             step="1"
-            placeholder="Enter compounding frequency"
             value={state.compoundingFrequency.value}
             error={state.compoundingFrequency.error}
             onChange={(e) => updateField('compoundingFrequency', e.target.value)}
-            helperText="Number of times interest compounds per year (e.g., 12 for monthly)"
           />
           
           <Input
             label="Investment Duration (years)"
             type="number"
             step="0.1"
-            placeholder="Enter investment duration"
             value={state.duration.value}
             error={state.duration.error}
             onChange={(e) => updateField('duration', e.target.value)}
-            helperText="Length of investment in years"
           />
           
           <Input
-            label="Recurring Contribution"
+            label="Recurring Contribution (USD/period)"
             type="number"
             step="0.01"
-            placeholder="Enter recurring contribution"
             value={state.recurringContribution.value}
             error={state.recurringContribution.error}
             onChange={(e) => updateField('recurringContribution', e.target.value)}
-            helperText="Amount contributed each compounding period (optional)"
           />
           
           <div className="flex space-x-3 pt-4">
@@ -116,20 +106,20 @@ export const CompoundInterestCalculator: React.FC = () => {
           </div>
           
           {result && (
-            <div className="mt-6 p-4 bg-[#1c1c1e] rounded-lg space-y-3">
+            <div className="mt-6 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)] space-y-3">
               <h3 className="text-lg font-semibold text-[#ff9f0a]">Results</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <p className="text-sm text-[#8e8e93]">Final Balance</p>
-                  <p className="text-xl font-bold text-white">{result.finalBalance}</p>
+                  <p className="text-sm text-[var(--text-muted)]">Final Balance</p>
+                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[var(--text-strong)]">{result.finalBalance}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-[#8e8e93]">Interest Earned</p>
-                  <p className="text-xl font-bold text-[#30d158]">{result.interestEarned}</p>
+                  <p className="text-sm text-[var(--text-muted)]">Interest Earned</p>
+                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[#30d158]">{result.interestEarned}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-[#8e8e93]">Effective Annual Rate</p>
-                  <p className="text-xl font-bold text-white">{result.effectiveAnnualRate}</p>
+                  <p className="text-sm text-[var(--text-muted)]">Effective Annual Rate</p>
+                  <p className="financial-display text-[clamp(1.5rem,3.5vw,2.4rem)] font-bold text-[var(--text-strong)]">{result.effectiveAnnualRate}</p>
                 </div>
               </div>
             </div>

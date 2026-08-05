@@ -46,10 +46,15 @@ export function validatePositive(value: Decimal, fieldName: string): void {
 }
 
 /**
- * Formats a Decimal as currency string
+ * Formats a Decimal as a US currency string
  */
 export function formatCurrency(value: Decimal): string {
-  return value.toFixed(2)
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value.toNumber())
 }
 
 /**

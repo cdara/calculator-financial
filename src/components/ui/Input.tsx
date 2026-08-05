@@ -39,7 +39,6 @@ const normalizeNumericInputValue = (value: string) => {
 export const Input: React.FC<InputProps> = ({
   label,
   error,
-  helperText,
   className = '',
   id,
   type,
@@ -60,7 +59,7 @@ export const Input: React.FC<InputProps> = ({
   }
 
   return (
-    <div className="flex flex-col space-y-1">
+    <div className="flex flex-col space-y-2">
       {label && (
         <label
           htmlFor={inputId}
@@ -74,10 +73,10 @@ export const Input: React.FC<InputProps> = ({
         type={resolvedType}
         inputMode={isNumericInput ? 'decimal' : inputMode}
         className={`
-          px-4 py-3 rounded-xl bg-[var(--input-bg)] border-2 border-[var(--input-border)]
-          text-[var(--input-text)] placeholder:text-[var(--text-muted)]
-          focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]
-          transition-all duration-200 shadow-sm
+          min-h-[54px] px-4 py-3 rounded-[18px] bg-[var(--input-bg)] border-[3px] border-[var(--input-border)]
+          text-[var(--input-text)] text-base font-medium placeholder:text-transparent
+          focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]
+          transition-all duration-200 shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]
           ${error ? 'border-[var(--error)] focus:border-[var(--error)] focus:ring-[var(--error)]' : ''}
           ${className}
         `}
@@ -86,9 +85,6 @@ export const Input: React.FC<InputProps> = ({
       />
       {error && (
         <span className="text-sm text-[var(--error)]">{error}</span>
-      )}
-      {helperText && !error && (
-        <span className="text-sm text-[var(--text-muted)]">{helperText}</span>
       )}
     </div>
   )

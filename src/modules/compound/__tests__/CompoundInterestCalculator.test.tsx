@@ -8,19 +8,19 @@ describe('CompoundInterestCalculator', () => {
     render(<CompoundInterestCalculator />)
 
     expect(screen.getByText('Daily Compound Interest Calculator')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter principal amount')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter annual interest rate')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter compounding frequency')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter investment duration')).toBeInTheDocument()
+    expect(screen.getByLabelText('Principal Amount (USD)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Annual Interest Rate (%)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Compounding Frequency (times/year)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Investment Duration (years)')).toBeInTheDocument()
   })
 
   it('accepts user input and displays results', async () => {
     const user = userEvent.setup()
     render(<CompoundInterestCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter principal amount'), '10000')
-    await user.type(screen.getByPlaceholderText('Enter annual interest rate'), '5')
-    await user.type(screen.getByPlaceholderText('Enter investment duration'), '10')
+    await user.type(screen.getByLabelText('Principal Amount (USD)'), '10000')
+    await user.type(screen.getByLabelText('Annual Interest Rate (%)'), '5')
+    await user.type(screen.getByLabelText('Investment Duration (years)'), '10')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Results')).toBeInTheDocument()

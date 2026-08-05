@@ -66,7 +66,7 @@ export const TVMCalculator: React.FC = () => {
       <CardContent>
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-[#8e8e93] mb-2">
+            <label className="block text-sm font-medium text-[var(--text-muted)] mb-2">
               Solve For
             </label>
             <div className="grid grid-cols-5 gap-2">
@@ -80,8 +80,8 @@ export const TVMCalculator: React.FC = () => {
                   className={`
                     px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200
                     ${solveFor === key
-                      ? 'bg-[#ff9f0a] text-white shadow-md'
-                      : 'bg-[#2c2c2e] text-[#8e8e93] hover:text-white hover:bg-[#3a3a3c]'
+                      ? 'bg-[var(--accent)] text-white shadow-md'
+                      : 'bg-[var(--panel)] text-[var(--text-muted)] hover:text-[var(--text-strong)] hover:bg-[var(--panel-hover)]'
                     }
                   `}
                 >
@@ -101,7 +101,6 @@ export const TVMCalculator: React.FC = () => {
                 label={label}
                 type="number"
                 step="0.01"
-                placeholder={isSolvingFor ? 'Leave empty to solve' : `Enter ${variable}`}
                 value={state[variable].value}
                 error={state[variable].error}
                 onChange={(e) => handleVariableChange(variable, e.target.value)}
@@ -122,18 +121,18 @@ export const TVMCalculator: React.FC = () => {
           </div>
           
           {result && (result as any)[solveFor] && (
-            <div className="mt-6 p-4 bg-[#1c1c1e] rounded-lg">
+            <div className="mt-6 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)]">
               <h3 className="text-lg font-semibold text-[#ff9f0a] mb-2">Result</h3>
               <div>
-                <p className="text-sm text-[#8e8e93]">{variableLabels[solveFor]}</p>
-                <p className="text-2xl font-bold text-white">{(result as any)[solveFor]}</p>
+                <p className="text-sm text-[var(--text-muted)]">{variableLabels[solveFor]}</p>
+                <p className="financial-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-[var(--text-strong)]">{(result as any)[solveFor]}</p>
               </div>
             </div>
           )}
           
-          <div className="mt-4 p-4 bg-[#2c2c2e] rounded-lg">
-            <h4 className="text-sm font-semibold text-[#8e8e93] mb-2">How to Use</h4>
-            <ul className="text-xs text-[#8e8e93] space-y-1">
+          <div className="mt-4 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)]">
+            <h4 className="text-sm font-semibold text-[var(--text-muted)] mb-2">How to Use</h4>
+            <ul className="text-xs text-[var(--text-muted)] space-y-1">
               <li>• Select which variable to solve for using the buttons above</li>
               <li>• Enter values for the other 4 variables</li>
               <li>• Leave the field you want to solve for empty</li>

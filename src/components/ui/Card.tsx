@@ -9,8 +9,8 @@ export const Card: React.FC<CardProps> = ({ children, className = '' }) => {
   return (
     <div
       className={`
-        rounded-2xl bg-[var(--panel)] border border-[var(--border)]
-        shadow-[var(--shadow)] p-6
+        w-full rounded-[28px] bg-[var(--panel)] border-[3px] border-[var(--border)]
+        shadow-[var(--shadow)] p-4 sm:p-6
         ${className}
       `}
     >

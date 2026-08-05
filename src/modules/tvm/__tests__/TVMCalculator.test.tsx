@@ -8,11 +8,11 @@ describe('TVMCalculator', () => {
     render(<TVMCalculator />)
 
     expect(screen.getByText('Time Value of Money (TVM) Solver')).toBeInTheDocument()
-    expect(screen.getByText('Present Value (PV)')).toBeInTheDocument()
-    expect(screen.getByText('Future Value (FV)')).toBeInTheDocument()
-    expect(screen.getByText('Payment (PMT)')).toBeInTheDocument()
-    expect(screen.getByText('Interest Rate (I/Y)')).toBeInTheDocument()
-    expect(screen.getByText('Number of Periods (N)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Present Value (PV)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Future Value (FV)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Payment (PMT)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Interest Rate (I/Y)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Number of Periods (N)')).toBeInTheDocument()
   })
 
   it('allows switching the variable to solve for', async () => {
@@ -22,17 +22,17 @@ describe('TVMCalculator', () => {
     await user.click(screen.getByRole('button', { name: 'N' }))
 
     expect(screen.getByRole('button', { name: 'Calculate N' })).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Leave empty to solve')).toBeInTheDocument()
+    expect(screen.getByLabelText('Number of Periods (N)')).toBeInTheDocument()
   })
 
   it('solves for future value with valid inputs', async () => {
     const user = userEvent.setup()
     render(<TVMCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter pv'), '-1000')
-    await user.type(screen.getByPlaceholderText('Enter pmt'), '-100')
-    await user.type(screen.getByPlaceholderText('Enter iy'), '5')
-    await user.type(screen.getByPlaceholderText('Enter n'), '10')
+    await user.type(screen.getByLabelText('Present Value (PV)'), '-1000')
+    await user.type(screen.getByLabelText('Payment (PMT)'), '-100')
+    await user.type(screen.getByLabelText('Interest Rate (I/Y)'), '5')
+    await user.type(screen.getByLabelText('Number of Periods (N)'), '10')
     await user.click(screen.getByRole('button', { name: 'Calculate FV' }))
 
     expect(screen.getByText('Result')).toBeInTheDocument()

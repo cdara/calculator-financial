@@ -8,18 +8,18 @@ describe('CAGRCalculator', () => {
     render(<CAGRCalculator />)
 
     expect(screen.getByText('Compound Annual Growth Rate (CAGR)')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter beginning value')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter ending value')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter number of years')).toBeInTheDocument()
+    expect(screen.getByLabelText('Beginning Value (USD)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Ending Value (USD)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Number of Years')).toBeInTheDocument()
   })
 
   it('accepts user input and displays CAGR result', async () => {
     const user = userEvent.setup()
     render(<CAGRCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter beginning value'), '1000')
-    await user.type(screen.getByPlaceholderText('Enter ending value'), '2000')
-    await user.type(screen.getByPlaceholderText('Enter number of years'), '10')
+    await user.type(screen.getByLabelText('Beginning Value (USD)'), '1000')
+    await user.type(screen.getByLabelText('Ending Value (USD)'), '2000')
+    await user.type(screen.getByLabelText('Number of Years'), '10')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Result')).toBeInTheDocument()
