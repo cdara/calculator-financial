@@ -7,16 +7,17 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
   return (
-    <header className="py-6 px-4 border-b border-[var(--border)] bg-[var(--bg)]">
-      <div className="max-w-4xl mx-auto flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-[var(--text-strong)]">
+    <header className="px-4 py-3 border-b border-[var(--border)] bg-[var(--bg)]">
+      <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <h1 className="text-xl font-bold text-[var(--text-strong)]">
             FinCalc Suite
           </h1>
-          <p className="text-[var(--text-muted)] text-sm mt-1">
+          <span className="text-sm text-[var(--text-muted)] hidden sm:inline">
             Professional Financial Calculator
-          </p>
+          </span>
         </div>
+
         <button
           type="button"
           onClick={onToggleTheme}

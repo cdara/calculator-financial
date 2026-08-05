@@ -59,7 +59,7 @@ export const CompoundInterestCalculator: React.FC = () => {
             error={state.principal.error}
             onChange={(e) => updateField('principal', e.target.value)}
           />
-          
+
           <Input
             label="Annual Interest Rate (%)"
             type="number"
@@ -68,7 +68,7 @@ export const CompoundInterestCalculator: React.FC = () => {
             error={state.annualRate.error}
             onChange={(e) => updateField('annualRate', e.target.value)}
           />
-          
+
           <Input
             label="Compounding Frequency (times/year)"
             type="number"
@@ -77,7 +77,7 @@ export const CompoundInterestCalculator: React.FC = () => {
             error={state.compoundingFrequency.error}
             onChange={(e) => updateField('compoundingFrequency', e.target.value)}
           />
-          
+
           <Input
             label="Investment Duration (years)"
             type="number"
@@ -86,7 +86,7 @@ export const CompoundInterestCalculator: React.FC = () => {
             error={state.duration.error}
             onChange={(e) => updateField('duration', e.target.value)}
           />
-          
+
           <Input
             label="Recurring Contribution (USD/period)"
             type="number"
@@ -95,7 +95,7 @@ export const CompoundInterestCalculator: React.FC = () => {
             error={state.recurringContribution.error}
             onChange={(e) => updateField('recurringContribution', e.target.value)}
           />
-          
+
           <div className="flex space-x-3 pt-4">
             <Button onClick={handleCalculate} className="flex-1">
               Calculate
@@ -104,22 +104,30 @@ export const CompoundInterestCalculator: React.FC = () => {
               Reset
             </Button>
           </div>
-          
+
           {result && (
             <div className="mt-6 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)] space-y-3">
               <h3 className="text-lg font-semibold text-[#ff9f0a]">Results</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between rounded-lg bg-[var(--panel-strong)] px-4 py-3">
                   <p className="text-sm text-[var(--text-muted)]">Final Balance</p>
-                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[var(--text-strong)]">{result.finalBalance}</p>
+                  <p className="financial-display break-all text-right text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-[var(--text-strong)]">
+                    {result.finalBalance}
+                  </p>
                 </div>
-                <div>
+
+                <div className="flex items-center justify-between rounded-lg bg-[var(--panel-strong)] px-4 py-3">
                   <p className="text-sm text-[var(--text-muted)]">Interest Earned</p>
-                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[#30d158]">{result.interestEarned}</p>
+                  <p className="financial-display break-all text-right text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-[#30d158]">
+                    {result.interestEarned}
+                  </p>
                 </div>
-                <div>
+
+                <div className="flex items-center justify-between rounded-lg bg-[var(--panel-strong)] px-4 py-3">
                   <p className="text-sm text-[var(--text-muted)]">Effective Annual Rate</p>
-                  <p className="financial-display text-[clamp(1.5rem,3.5vw,2.4rem)] font-bold text-[var(--text-strong)]">{result.effectiveAnnualRate}</p>
+                  <p className="financial-display text-right text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-[var(--text-strong)]">
+                    {result.effectiveAnnualRate}
+                  </p>
                 </div>
               </div>
             </div>

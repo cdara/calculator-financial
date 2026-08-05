@@ -54,6 +54,7 @@ function App() {
         <div className="max-w-4xl mx-auto text-center text-[var(--text-muted)] text-sm">
           <p>FinCalc Suite - Professional Financial Calculator</p>
           <p className="mt-1">Built with React, TypeScript, and Decimal.js</p>
+          <p><span aria-hidden="true">✉️</span><a href="mailto:cwork815@gmail.com" aria-label="Send email to cwork815@gmail.com">cwork815@gmail.com</a></p>
         </div>
       </footer>
     </div>

@@ -53,7 +53,7 @@ export const SimpleInterestCalculator: React.FC = () => {
             error={state.principal.error}
             onChange={(e) => updateField('principal', e.target.value)}
           />
-          
+
           <Input
             label="Interest Rate (%)"
             type="number"
@@ -62,7 +62,7 @@ export const SimpleInterestCalculator: React.FC = () => {
             error={state.interestRate.error}
             onChange={(e) => updateField('interestRate', e.target.value)}
           />
-          
+
           <Input
             label="Time (years)"
             type="number"
@@ -71,7 +71,7 @@ export const SimpleInterestCalculator: React.FC = () => {
             error={state.time.error}
             onChange={(e) => updateField('time', e.target.value)}
           />
-          
+
           <div className="flex space-x-3 pt-4">
             <Button onClick={handleCalculate} className="flex-1">
               Calculate
@@ -80,18 +80,23 @@ export const SimpleInterestCalculator: React.FC = () => {
               Reset
             </Button>
           </div>
-          
+
           {result && (
             <div className="mt-6 p-4 bg-[var(--panel)] rounded-lg border border-[var(--border)] space-y-3">
               <h3 className="text-lg font-semibold text-[#ff9f0a]">Results</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between rounded-lg bg-[var(--panel-strong)] px-4 py-3">
                   <p className="text-sm text-[var(--text-muted)]">Interest Earned</p>
-                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[#30d158]">{result.interest}</p>
+                  <p className="financial-display break-all text-right text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-[#30d158]">
+                    {result.interest}
+                  </p>
                 </div>
-                <div>
+
+                <div className="flex items-center justify-between rounded-lg bg-[var(--panel-strong)] px-4 py-3">
                   <p className="text-sm text-[var(--text-muted)]">Total Amount</p>
-                  <p className="financial-display text-[clamp(1.8rem,4vw,3rem)] font-bold text-[var(--text-strong)]">{result.totalAmount}</p>
+                  <p className="financial-display break-all text-right text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-[var(--text-strong)]">
+                    {result.totalAmount}
+                  </p>
                 </div>
               </div>
             </div>
