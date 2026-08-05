@@ -1,4 +1,4 @@
-name: Deploy React App
+name: Deploy Calculator Financial App
 
 on:
   push:
@@ -19,7 +19,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
+          cache: npm
 
       - run: npm ci
       - run: npm run build
