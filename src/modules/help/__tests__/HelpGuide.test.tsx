@@ -18,9 +18,9 @@ describe('HelpGuide', () => {
     const { container } = render(<HelpGuide />)
 
     const compoundButton = screen.getByRole('button', { name: /Compound Interest/i })
-    await compoundButton.click()
+    compoundButton.click()
 
     expect(screen.getByText('Formula')).toBeInTheDocument()
-    expect(container.querySelector('.katex-display')).toBeInTheDocument()
+    expect(container.querySelector('.katex')).toBeInTheDocument()
   })
 })

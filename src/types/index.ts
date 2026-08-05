@@ -64,8 +64,12 @@ export interface TVMInput {
 
 export type TVMVariable = 'pv' | 'fv' | 'pmt' | 'iy' | 'n'
 
-export type TVMResult = {
-  [K in TVMVariable]?: string
+export interface TVMResult {
+  pv?: string
+  fv?: string
+  pmt?: string
+  iy?: string
+  n?: string
 }
 
 export interface CAGRInput {

@@ -33,8 +33,8 @@ describe('CompoundInterestCalculator', () => {
     const user = userEvent.setup()
     render(<CompoundInterestCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter annual interest rate'), '5')
-    await user.type(screen.getByPlaceholderText('Enter investment duration'), '10')
+    await user.type(screen.getByLabelText('Annual Interest Rate (%)'), '5')
+    await user.type(screen.getByLabelText('Investment Duration (years)'), '10')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Principal is required')).toBeInTheDocument()

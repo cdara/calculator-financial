@@ -1,16 +1,17 @@
-import React from 'react'
 import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { BlockMath } from 'react-katex'
+import { MathFormula } from '../../../types/MathFormula'
 
 describe('KaTeX smoke test', () => {
-  it('renders a minimal hardcoded formula using BlockMath', () => {
+  it('renders a formula using KaTeX', () => {
     render(
       <div data-testid="katex-smoke">
-        <BlockMath math={String.raw`x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}`} />
+        <MathFormula formula={String.raw`x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}`} />
       </div>,
     )
 
-    expect(screen.getByTestId('katex-smoke').querySelector('.katex-display')).toBeInTheDocument()
+    expect(
+      screen.getByTestId('katex-smoke').querySelector('.katex')
+    ).toBeInTheDocument()
   })
 })

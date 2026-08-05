@@ -8,7 +8,7 @@ describe('SimpleInterestCalculator', () => {
     render(<SimpleInterestCalculator />)
 
     expect(screen.getByText('Simple Interest Calculator')).toBeInTheDocument()
-    expect(screen.getByLabelText('Principal Amount (USD)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Principal Amount')).toBeInTheDocument()
     expect(screen.getByLabelText('Interest Rate (%)')).toBeInTheDocument()
     expect(screen.getByLabelText('Time (years)')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Calculate' })).toBeInTheDocument()
@@ -18,9 +18,9 @@ describe('SimpleInterestCalculator', () => {
     const user = userEvent.setup()
     render(<SimpleInterestCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter principal amount'), '10000')
-    await user.type(screen.getByPlaceholderText('Enter interest rate'), '5')
-    await user.type(screen.getByPlaceholderText('Enter time period'), '3')
+    await user.type(screen.getByLabelText('Principal Amount (USD)'), '10000')
+    await user.type(screen.getByLabelText('Interest Rate (%)'), '5')
+    await user.type(screen.getByLabelText('Time (years)'), '3')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Results')).toBeInTheDocument()
@@ -41,9 +41,9 @@ describe('SimpleInterestCalculator', () => {
     const user = userEvent.setup()
     render(<SimpleInterestCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter principal amount'), '10000')
-    await user.type(screen.getByPlaceholderText('Enter interest rate'), '5')
-    await user.type(screen.getByPlaceholderText('Enter time period'), '3')
+    await user.type(screen.getByLabelText('Principal Amount (USD)'), '10000')
+    await user.type(screen.getByLabelText('Interest Rate (%)'), '5')
+    await user.type(screen.getByLabelText('Time (years)'), '3')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
     expect(screen.getByText('Results')).toBeInTheDocument()
 

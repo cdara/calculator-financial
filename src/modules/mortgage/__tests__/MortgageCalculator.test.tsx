@@ -17,9 +17,9 @@ describe('MortgageCalculator', () => {
     const user = userEvent.setup()
     render(<MortgageCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter loan amount'), '300000')
-    await user.type(screen.getByPlaceholderText('Enter annual interest rate'), '4.5')
-    await user.type(screen.getByPlaceholderText('Enter loan term'), '30')
+    await user.type(screen.getByLabelText('Loan Amount (USD)'), '300000')
+    await user.type(screen.getByLabelText('Interest Rate (%)'), '4.5')
+    await user.type(screen.getByLabelText('Loan Term (years)'), '30')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Monthly Payment Summary')).toBeInTheDocument()
@@ -31,8 +31,8 @@ describe('MortgageCalculator', () => {
     const user = userEvent.setup()
     render(<MortgageCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter annual interest rate'), '4.5')
-    await user.type(screen.getByPlaceholderText('Enter loan term'), '30')
+    await user.type(screen.getByLabelText('Interest Rate (%)'), '4.5')
+    await user.type(screen.getByLabelText('Loan Term (years)'), '30')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Loan Amount is required')).toBeInTheDocument()
@@ -42,9 +42,9 @@ describe('MortgageCalculator', () => {
     const user = userEvent.setup()
     render(<MortgageCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter loan amount'), '300000')
-    await user.type(screen.getByPlaceholderText('Enter annual interest rate'), '4.5')
-    await user.type(screen.getByPlaceholderText('Enter loan term'), '30')
+    await user.type(screen.getByLabelText('Loan Amount (USD)'), '300000')
+    await user.type(screen.getByLabelText('Interest Rate (%)'), '4.5')
+    await user.type(screen.getByLabelText('Loan Term (years)'), '30')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
     await user.click(screen.getByRole('button', { name: 'Show Amortization Schedule' }))
 

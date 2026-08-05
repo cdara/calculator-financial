@@ -31,8 +31,8 @@ describe('CAGRCalculator', () => {
     const user = userEvent.setup()
     render(<CAGRCalculator />)
 
-    await user.type(screen.getByPlaceholderText('Enter ending value'), '2000')
-    await user.type(screen.getByPlaceholderText('Enter number of years'), '10')
+    await user.type(screen.getByLabelText('Ending Value (USD)'), '2000')
+    await user.type(screen.getByLabelText('Number of Years'), '10')
     await user.click(screen.getByRole('button', { name: 'Calculate' }))
 
     expect(screen.getByText('Beginning Value is required')).toBeInTheDocument()
