@@ -14,8 +14,6 @@ const HelpSection: React.FC<HelpSectionProps> = ({ title, scenario, inputSteps, 
   const [open, setOpen] = React.useState(false)
   const formulaForRender = formula
 
-  console.log('Help formula before BlockMath:', formulaForRender)
-
   return (
     <div className="rounded-xl border border-[var(--border)] bg-[var(--panel)] overflow-hidden">
       <button
