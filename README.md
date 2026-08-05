@@ -1,9 +1,9 @@
-# Calculator Financial
-
-# Launch here 
-<a href="https://username.github.io/calculator-financial/" target="_blank" rel="noopener noreferrer">
-  🚀 Open FinCalc Suite
-</a>
+# Calculator Financial 
+<p align="center">
+  <a href="https://username.github.io/calculator-financial/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+    🚀 Launch FinCalc Suite
+  </a>
+</p>
 
 # Initial Setup on Bash
 
