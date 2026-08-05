@@ -1,7 +1,9 @@
 # Calculator Financial
 
 # Launch here 
-## https://cdara.github.io/calculator-financial/
+<a href="https://username.github.io/calculator-financial/" target="_blank" rel="noopener noreferrer">
+  🚀 Open FinCalc Suite
+</a>
 
 # Initial Setup on Bash
 
