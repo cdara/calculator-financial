@@ -1,9 +1,10 @@
-# Calculator Financial 
-<p align="center">
-  <a href="https://username.github.io/calculator-financial/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-    🚀 Launch FinCalc Suite
-  </a>
-</p>
+# Calculator Financial
+
+## Launch here
+
+🚀 [Launch FinCalc Suite](https://cdara.github.io/calculator-financial/)
+
+> 💡 Tip: Right-click the link and choose **"Open link in new tab"** to keep this README open.
 
 # Initial Setup on Bash
 
